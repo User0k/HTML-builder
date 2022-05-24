@@ -5,7 +5,7 @@ const { copyFile, readdir, mkdir, rm } = require('fs/promises');
 
 async function copyDir() {
   try {
-    await rm(destFolder, { recursive: true });
+    await rm(destFolder, { recursive: true, force: true });
     await mkdir(destFolder);
     const files = await readdir(sourceFolder);
     for (const file of files) {
